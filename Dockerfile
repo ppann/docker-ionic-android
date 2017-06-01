@@ -25,9 +25,7 @@ ENV PATH ${PATH}:${GRADLE_HOME}/bin
 
 # https://stackoverflow.com/a/37732545/3841188
 # Point to /opt/gradle-2.14.1-all.zip
-# /project/platforms/android/wrapper/../../../../../opt/gradle-2.14.1-all.zip
-ENV CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL ../../../../../opt/gradle-"$GRADLE_VERSION"-all.zip
-
+ENV CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL file\:/opt/gradle-"$GRADLE_VERSION"-all.zip
 
 ##
 # PHANTOMJS
@@ -55,5 +53,7 @@ RUN npm install -g \
     jscs \
     eslint \
     requirements \
-    phantomjs-prebuilt \
-    && cordova telemetry off
+    phantomjs-prebuilt
+
+RUN cordova telemetry off && \
+    apt-get clean
