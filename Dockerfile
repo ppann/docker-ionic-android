@@ -1,4 +1,4 @@
-FROM ppann/docker-android-sdk
+FROM ppann/docker-android-sdk:v1
 
 ENV CORDOVA_VERSION=6.5.0 \
     IONIC_VERSION=2.2.3 \
