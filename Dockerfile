@@ -57,3 +57,14 @@ RUN npm install -g \
 
 RUN cordova telemetry off && \
     apt-get clean
+
+
+###
+#   AWS CLI
+###
+
+RUN apt-get update && apt-get install -y \
+    python-pip \
+    groff \
+    maven && \
+    pip install awscli
