@@ -1,7 +1,7 @@
 FROM ppann/docker-android-sdk
 
 ENV CORDOVA_VERSION=6.5.0 \
-    IONIC_VERSION=2.2.3 \
+    IONIC_VERSION=3.5.0 \
     GRADLE_VERSION=2.14.1\
     GRADLE_HOME=/opt/gradle-2.14.1
 
@@ -39,7 +39,7 @@ RUN apt-get install -y --force-yes build-essential chrpath libssl-dev libxft-dev
 ##
 # NODEJS
 ##
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get install -y nodejs
 
 ##
@@ -48,11 +48,6 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
 RUN npm install -g \
     cordova@"$CORDOVA_VERSION" \
     ionic@"$IONIC_VERSION" \
-    bower \
-    gulp \
-    jscs \
-    eslint \
-    requirements \
     phantomjs-prebuilt
 
 RUN cordova telemetry off && \
